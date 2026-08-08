@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>NYC 311 Heat Complaints</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <main class="container">
+
+    <header class="page-header">
+      <p class="eyebrow">NYC Housing Data</p>
+
+      <h1>NYC 311 Heat &amp; Hot Water Complaints</h1>
+
+      <p class="context">
+        Heat and hot water complaints may signal that New Yorkers are
+        living without essential services during colder months.
+      </p>
+    </header>
+
+    <section class="insight-card">
+      <h2>Key Insight</h2>
+
+      <p class="insight">
+        The Bronx had the highest number of heat and hot water complaints
+        among all five NYC boroughs during the selected time period.
+      </p>
+    </section>
+
+    <section class="chart-card">
+
+      <div class="chart-heading">
+        <div>
+          <h2>Complaints by Borough</h2>
+
+          <p id="date-range">
+            Loading the selected date range...
+          </p>
+        </div>
+
+        <button id="refresh-button" type="button">
+          Refresh Live Data
+        </button>
+      </div>
+
+      <div id="status" role="status" aria-live="polite">
+        Loading live NYC 311 data...
+      </div>
+
+      <div class="chart-wrapper">
+        <canvas
+          id="complaints-chart"
+          aria-label="Bar chart comparing heat and hot water complaints across NYC boroughs"
+          role="img"
+        ></canvas>
+      </div>
+        </section>
+    
+    <footer>
+      <p>
+        Source: NYC Open Data, 311 Service Requests from 2020 to Present.
+        Data is requested live when the page loads.
+      </p>
+    </footer>
+    
+    </main>
+    
+    <script src="script.js"></script>
+    
+    </body>
+    
+    </html>  
+      
