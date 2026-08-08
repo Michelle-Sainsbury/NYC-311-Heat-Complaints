@@ -42,7 +42,7 @@ async function loadComplaintData() {
   statusMessage.textContent = "Loading live NYC 311 data...";
 
   dateRange.textContent =
-    "January 1 through March 31, 2025";
+    "January 1, 2023 through December 31, 2025";
 
   try {
     const response = await fetch(createQueryUrl());
