@@ -1,7 +1,7 @@
 const API_ENDPOINT = "https://data.cityofnewyork.us/resource/erm2-nwe9.json";
 
-const START_DATE = "2025-01-01T00:00:00.000";
-const END_DATE = "2025-03-31T23:59:59.999";
+const START_DATE = "2023-01-01T00:00:00.000";
+const END_DATE = "2025-12-31T23:59:59.999";
 
 const boroughOrder = [
   "BRONX",
