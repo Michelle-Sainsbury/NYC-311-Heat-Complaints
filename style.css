@@ -6,7 +6,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #eef3f7;
+  background: #000000;
   color: #1f2933;
 }
 
@@ -148,4 +148,18 @@ footer {
   .chart-wrapper {
     min-height: 360px;
   }
+}
+/* Dark background text adjustments */
+.page-header h1,
+.context,
+.audience,
+.instructions,
+.filter-card,
+.map-heading h2,
+.map-heading p {
+  color: #f3f4f6;
+}
+
+.eyebrow {
+  color: #60a5fa;
 }

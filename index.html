@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="style.css">
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 </head>
 
 <body>
@@ -30,7 +31,7 @@
         living without essential services during colder months.
       </p>
       <p class="audience">
-  Designed for housing advocates, attorneys, and funders to identify where heat and hot water complaint patterns may warrant further investigation or resources.
+      Designed for tenants, housing advocates, attorneys, landlords and property managers, funders, policymakers, and contractors or service businesses seeking to understand where heat and hot water problems are concentrated across NYC. Complaint patterns may also help service providers identify areas of potential repair and maintenance demand.
 </p>
     </header>
 
@@ -42,6 +43,9 @@
         among all five NYC boroughs during the selected time period.
       </p>
     </section>
+<p class="instructions">
+  <strong>How to use:</strong> Select a borough to view complaint totals on the NYC map, or enter a ZIP code for a more localized analysis. Use the complaint-type filter to explore Heat, Hot Water, or combined complaints.
+</p>
 <section class="filter-card">
   <label for="borough-select">Select a borough:</label>
   
@@ -53,12 +57,42 @@
     <option value="QUEENS">Queens</option>
     <option value="STATEN ISLAND">Staten Island</option>
   </select>
+  <label for="zip-code">Enter a ZIP code:</label>
+
+<input
+  id="zip-code"
+  type="text"
+  inputmode="numeric"
+  maxlength="5"
+  placeholder="Example: 10458"
+/>
+<label for="complaint-filter">Complaint type:</label>
+
+<select id="complaint-filter">
+<option value="all">All Heat & Hot Water</option>
+<option value="heat">Heat Only</option>
+<option value="hot-water">Hot Water Only</option>
+<option value="both">No Heat & No Hot Water</option>
+</select>
+<button id="apply-filters" type="button">
+  Apply Filters
+</button>
+</section>
+   <section class="map-card">
+  <div class="map-heading">
+    <div>
+      <h2 id="map-title">NYC Heat & Hot Water Complaints</h2>
+      <p id="map-subtitle">Complaint totals by borough</p>
+    </div>
+  </div>
+  
+  <div id="borough-map" aria-label="Map of NYC borough complaint totals"></div>
 </section>
     <section class="chart-card">
 
       <div class="chart-heading">
         <div>
-          <h2>Complaints by Borough</h2>
+          <h2 id="chart-title">Complaints by Borough</h2>
 
           <p id="date-range">
             Loading the selected date range...
