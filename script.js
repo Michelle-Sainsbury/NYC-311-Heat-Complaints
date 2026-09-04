@@ -219,7 +219,25 @@ complaintDetailFilter ,
 async function loadComplaintData() {
   refreshButton.disabled = true;
   statusMessage.textContent = "Loading live NYC 311 data...";
+const selectedBoroughForLoad = boroughSelect.value;
+const selectedZipForLoad = zipCodeInput.value.trim();
+const selectedComplaintForLoad = complaintFilter.value;
+if (selectedZipForLoad) {
 
+
+  mapCard.style.display = "none";
+  chartCard.style.display = "";
+  chartCanvas.style.display = "none";
+  if (complaintsChart) {
+    complaintsChart.destroy();
+    complaintsChart = null;
+  }
+  chartTitle.textContent = `ZIP ${selectedZipForLoad} Complaint Breakdown`;
+  
+} else {
+  chartCard.style.display = "none";
+  mapCard.style.display = "";
+}
   dateRange.textContent =
   `January 1, ${CURRENT_YEAR} through ${today.toLocaleDateString("en-US", {
     month: "long",
@@ -230,9 +248,9 @@ async function loadComplaintData() {
   try {
     const response = await fetch(
   createQueryUrl(
-  boroughSelect.value,
-  zipCodeInput.value.trim(),
-  complaintFilter.value
+ selectedBoroughForLoad,
+selectedZipForLoad,
+selectedComplaintForLoad
 )
 );
 
@@ -269,11 +287,11 @@ if (apiData.length === 0) {
       }
     });
 
-    const chartData = boroughSelect.value
+    const chartData = selectedBoroughForLoad
   ? [
       {
-        borough: boroughSelect.value,
-        count: complaintCounts[boroughSelect.value]
+        borough: selectedBoroughForLoad,
+        count: complaintCounts[selectedBoroughForLoad]
       }
     ]
   : boroughOrder.map((borough) => ({
@@ -285,7 +303,7 @@ if (apiData.length === 0) {
       (first, second) => second.count - first.count
     )[0];
 
-const selectedZip = zipCodeInput.value.trim();
+const selectedZip = selectedZipForLoad;
 
 const complaintLabels = {
   all: "heat and hot water",
@@ -295,7 +313,7 @@ const complaintLabels = {
 };
 
 const selectedComplaintLabel =
-  complaintLabels[complaintFilter.value] || "heat and hot water";
+  complaintLabels[selectedComplaintForLoad] || "heat and hot water";
 
 const periodText =
   `January 1, ${CURRENT_YEAR} through ${today.toLocaleDateString("en-US", {
@@ -319,8 +337,8 @@ if (selectedZip) {
     `of ${selectedComplaintLabel} complaints among all five NYC boroughs ` +
     `from ${periodText}, with ${formatNumber(highestBorough.count)} complaints.`;
 }
-    renderChart(chartData, highestBorough.borough);
-const selectedZipForView = zipCodeInput.value.trim();
+    
+const selectedZipForView = selectedZipForLoad;
 
 if (selectedZipForView) {
   mapCard.style.display = "none";
@@ -328,7 +346,7 @@ if (selectedZipForView) {
   
   await renderZipChart(
   selectedZipForView,
-  complaintFilter.value,
+  selectedComplaintForLoad,
   chartData
 );
 } else {
@@ -340,8 +358,7 @@ if (selectedZipForView) {
 
 statusMessage.textContent =
   `Live data loaded successfully. Last refreshed: ${new Date().toLocaleTimeString()}`;
-    statusMessage.textContent =
-      `Live data loaded successfully. Last refreshed: ${new Date().toLocaleTimeString()}`;
+    
   } catch (error) {
     console.error(error);
 
@@ -465,7 +482,7 @@ async function renderZipChart(
   if (complaintsChart) {
     complaintsChart.destroy();
   }
-
+chartCanvas.style.display = "block";
   complaintsChart = new Chart(chartCanvas, {
     type: "bar",
 
