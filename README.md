@@ -1,20 +1,55 @@
 # NYC 311 Heat & Hot Water Complaints
 
+An interactive NYC housing-data application that uses live NYC 311 service-request data to explore heat and hot water complaint patterns across New York City.
+
 ## Project Overview
 
-This project analyzes NYC 311 Heat and Hot Water complaints to identify differences in complaint rates across the five boroughs.
+The NYC 311 Heat & Hot Water Complaints app provides a live, year-to-date view of heat and hot water complaints reported through NYC 311.
 
-Rather than relying only on raw complaint totals, the analysis normalizes complaints by the number of households, allowing for a more meaningful comparison across boroughs of different sizes.
+Users can explore complaint activity at two geographic levels:
 
-## Core Insight
+- Borough-level analysis displayed on an interactive NYC borough map
+- ZIP-code analysis displayed as a complaint-type breakdown chart
 
-The Bronx has the highest rate of heat and hot water complaints per 1,000 households over the past three years.
+The application retrieves current data directly from the NYC Open Data API whenever the page loads or the user applies a new filter.
 
-## Why This Matters
+## Key Features
 
-Heat and hot water complaints are not distributed evenly across New York City. Looking at complaint rates rather than raw totals helps reveal where residents may experience these housing conditions disproportionately.
+- Live NYC 311 data
+- Automatic year-to-date reporting period
+- Interactive map of all five NYC boroughs
+- Borough selector with selected-borough highlighting
+- ZIP-code complaint analysis
+- Complaint-type filters:
+  - All Heat & Hot Water
+  - Heat Only
+  - Hot Water Only
+  - No Heat & No Hot Water
+- ZIP-code breakdown chart showing complaint categories
+- Dynamic Key Insight based on the selected geography and complaint type
+- Manual Refresh Live Data option
+- Responsive dark-theme interface
 
-This analysis demonstrates how public data can be transformed into a clearer picture of housing conditions and used to identify patterns that might otherwise be hidden by population differences.
+## How to Use
+
+Select a borough to view complaint totals on the NYC map, or enter a ZIP code for a more localized analysis.
+
+Use the complaint-type filter to explore Heat, Hot Water, combined, or related complaint categories.
+
+## Intended Audience
+
+The application is designed for:
+
+- Tenants
+- Housing advocates
+- Attorneys
+- Landlords and property managers
+- Funders
+- Policymakers
+- Contractors and service businesses
+- Other housing and community-development professionals
+
+Complaint patterns can help users identify where heat and hot water problems are concentrated and where further investigation, advocacy, resources, repair, or maintenance activity may be warranted.
 
 ## Data Source
 
@@ -23,19 +58,30 @@ NYC Open Data
 
 Dataset ID: `erm2-nwe9`
 
-## Built With
+The application requests data live from the NYC Open Data API.
+
+## Technologies
 
 - HTML
 - CSS
 - JavaScript
 - NYC Open Data API
+- D3.js
+- Chart.js
+- GeoJSON
 
 ## Project Files
 
-- `index.html` — webpage structure
-- `style.css` — visualization and page styling
-- `script.js` — data retrieval, processing, and visualization logic
+- `index.html` — webpage structure and user interface
+- `style.css` — page styling and dark-theme presentation
+- `script.js` — API requests, filtering, map rendering, chart rendering, and application logic
 
-## Purpose
+## Live Application
 
-Created as part of the Pursuit Native AI Program's Data-Driven Product Thinking work, focusing on hypothesis-driven analysis, data normalization, visualization, and communicating a defensible insight from public data.
+https://nyc-311-heat-complaints-a2wbky8m8-michelle-sainsbury1.vercel.app
+
+## Project Purpose
+
+Created as part of the Pursuit Native AI Builder Program's data-driven product work.
+
+The project demonstrates how public data can be transformed into an interactive tool that supports housing analysis, localized investigation, advocacy, program planning, and service-delivery decision-making.
