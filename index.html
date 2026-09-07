@@ -15,6 +15,55 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+  <style>
+    /* Scoped footer styles so existing dashboard styles remain unchanged. */
+    #michelle-consulting-footer {
+      box-sizing: border-box;
+      display: block;
+      margin: 28px 0 0;
+      padding: 24px;
+      background: #111827;
+      border: 1px solid #475569;
+      border-radius: 12px;
+      color: #e5e7eb;
+      font-size: 14px;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    #michelle-consulting-footer .consulting-footer {
+      display: block;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    #michelle-consulting-footer h2 {
+      display: block;
+      margin: 0 0 8px;
+      color: #ffffff;
+      font-size: 1.25rem;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    #michelle-consulting-footer p {
+      display: block;
+      margin: 0 0 12px;
+      color: #cbd5e1;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    #michelle-consulting-footer .source-note {
+      margin: 0;
+      padding-top: 16px;
+      border-top: 1px solid #334155;
+      color: #cbd5e1;
+      font-size: 12px;
+    }
+  </style>
 </head>
 
 <body>
@@ -48,7 +97,7 @@
 </p>
 <section class="filter-card">
   <label for="borough-select">Select a borough:</label>
-  
+
   <select id="borough-select">
     <option value="">Choose a borough</option>
     <option value="BRONX">Bronx</option>
@@ -85,7 +134,7 @@
       <p id="map-subtitle">Complaint totals by borough</p>
     </div>
   </div>
-  
+
   <div id="borough-map" aria-label="Map of NYC borough complaint totals"></div>
 </section>
     <section class="chart-card">
@@ -116,19 +165,27 @@
         ></canvas>
       </div>
         </section>
-    
-    <footer>
-      <p>
+
+    <footer id="michelle-consulting-footer">
+      <div class="consulting-footer">
+        <h2>Built by Michelle Sainsbury Consulting</h2>
+        <p>Housing • Human Services • Data • AI</p>
+        <p>
+          Custom analytics, housing-data reports, and
+          organizational dashboards available.
+        </p>
+      </div>
+
+      <p class="source-note">
         Source: NYC Open Data, 311 Service Requests from 2020 to Present.
         Data is requested live when the page loads.
       </p>
     </footer>
-    
+
     </main>
-    
+
     <script src="script.js"></script>
-    
+
     </body>
-    
-    </html>  
-      
+
+    </html>

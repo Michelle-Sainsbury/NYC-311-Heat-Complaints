@@ -125,11 +125,15 @@ h1 {
 }
 
 footer {
-  margin-top: 18px;
-  color: #667085;
+  margin-top: 24px;
+  padding: 24px;
+  background: #111827;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  color: #e5e7eb;
   font-size: 14px;
-  line-height: 1.5;
-  text-align: center;
+  line-height: 1.6;
+  text-align: left;
 }
 
 @media (max-width: 700px) {
@@ -162,4 +166,29 @@ footer {
 
 .eyebrow {
   color: #60a5fa;
+}
+/* Michelle Sainsbury Consulting footer */
+
+.consulting-footer {
+  border-top: 1px solid #334155;
+  padding: 24px 0 18px;
+  margin-top: 24px;
+}
+
+.consulting-footer h2 {
+  color: #f3f4f6;
+  font-size: 1.2rem;
+  margin: 0 0 8px;
+}
+
+.consulting-footer p {
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin: 8px 0;
+}
+
+footer>p {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  line-height: 1.5;
 }
